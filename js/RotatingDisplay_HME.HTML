@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Basic Embed</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://qa-dap.hyundai.eucorp.local/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+
+        function initpage() {  
+            $.ajax({  
+                  url: "https://10.122.105.15/trusted",  
+                  data: {"username":"tabadmin", "target_site":"HMCI"},
+                  type: "POST",  
+                  success: function (token) {  
+                    initViz(token);  
+                  },  
+                  error: function () {  
+                      alert('error');  
+                  }  
+              });  
+        }          
+        
+        function initViz(token) {
+            var containerDiv = document.getElementById("vizContainer"),
+                url = 'https://qa-dap.hyundai.eucorp.local/trusted/' + token + '/t/HMCI/views/HME_HB04_DS_001/Summary',
+                options = {
+                    hideTabs: true,
+                    onFirstInteractive: function () {
+                        console.log("Run this code when the viz has finished loading.");
+                    }
+                };
+
+            var viz = new tableau.Viz(containerDiv, url, options);
+            // Create a viz object and embed it in the container div.
+        }
+    </script>
+</head>
+
+<body onload="initpage();">
+    <div id="vizContainer" style="width:800px; height:700px;"></div>
+</body>
+
+</html>
+
+
+
+

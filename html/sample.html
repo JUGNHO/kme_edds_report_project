@@ -1,0 +1,813 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<head lang="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EDDS</title>
+    <link rel="icon" href="../img/kia_favicon_new.ico" />
+	<link  REL="stylesheet"  HREF="../css/bootstrap.min.css?rid=be18c5fa619452d8e92739924bd82e17"  TYPE="text/css" >
+    <link  rel="stylesheet"  href="../font-awesome/css/font-awesome.css"  type="text/css" >
+    <link  rel="stylesheet"  href="../css/animate.css"  type="text/css" >
+    <link  rel="stylesheet"  href="../css/style.css"  type="text/css" >
+    <link  rel="stylesheet"  href="../css/plugins/iCheck/custom.css"  type="text/css" >
+    <link  rel="stylesheet"  href="../css/plugins/sweetalert/sweetalert.css"  type="text/css" >
+    <link  rel="stylesheet"  href="../css/plugins/toastr/toastr.min.css"  type="text/css" >
+    <link  rel="stylesheet"  href="../css/plugins/dataTables/datatables.min.css"  type="text/css" >
+	<link  REL="stylesheet"  HREF="../css/plugins/bootstrap-select/bootstrap-select.min.css?rid=be18c5fa619452d8e92739924bd82e17"  TYPE="text/css" >
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.0.js"></script>
+    <script src="../js/lodash-4.17.4.min.js"></script>
+	<script SRC="../js/plugins/jquery-storage/jquery.storageapi.min.js?rid=be18c5fa619452d8e92739924bd82e17" ></script>
+	
+    <script src="../js/bootstrap.3.3.7.min.js"></script>
+    <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script SRC="../js/plugins/idle-timer/idle-timer.min.js?rid=be18c5fa619452d8e92739924bd82e17" ></script>
+    <script src="../js/plugins/toastr/toastr.min.js"></script>
+    <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../js/plugins/iCheck/icheck.min.js"></script>
+    <script src="../js/plugins/dataTables/datatables.min.js"></script>
+	<script SRC="../js/plugins/dataTables/dataTables.bootstrap.min.js?rid=be18c5fa619452d8e92739924bd82e17" ></script>
+	<script SRC="../js/plugins/dataTables/dataTables.responsive.min.js?rid=be18c5fa619452d8e92739924bd82e17" ></script>
+	<script SRC="../js/plugins/dataTables/responsive.bootstrap.min.js?rid=be18c5fa619452d8e92739924bd82e17" ></script>
+	<script SRC="../js/plugins/rvExport/rv-export.min.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/plugins/bootstrap-select/bootstrap-select.min.js?rid=be18c5fa619452d8e92739924bd82e17" ></script>
+	<script SRC="../js/plugins/moment/moment.min.js?rid=be18c5fa619452d8e92739924bd82e17" ></script>
+	<script SRC="../js/plugins/LSAPI.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-i18n.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-menu.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-history-template.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-notifications.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-pages.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-user-info.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-user-language.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-button-controller.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-legal-text.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-dom.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-util.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/edd-csrf.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+
+    <!--
+	<script SRC="../js/edd-session-checker.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+	<script SRC="../js/plugins/LSAPI-sessionScript.js?rid=9f07b7ffea5e9736b4377d912ce4b2de" ></script>
+    -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDDS</title>
+    <style>
+    .table-bordered > tbody > tr.table-divider > td {border-bottom:1px solid #808080;}
+    .table-bordered > thead > tr > th {text-align:center;}
+    .alignR{
+	    text-align: right;
+	    vertical-align: middle !important;
+    }
+    
+    .colorG{
+        background-color:#e5f7e5;
+    }
+    .colorB{
+        background-color:#ddd;
+    }    
+    .optiondivider, .optiondivider > span {
+        padding: 0px 0x!important;
+    }
+    .optionGroup {
+        font-weight:bold;
+    }
+    
+	
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+	/* Firefox */
+	input[type=number] {
+	  -moz-appearance: textfield;
+	}
+    </style>
+    <style>.container {background:white;display:block;margin:0.5cm auto;box-shadow:0 0 0.5cm rgb(0,0,0,0.5)} .title {padding:10px 20px;font-size:20px;font-weight:bold;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;}  .title2 {padding-left:10px;margin-top:40px;font-size:12px;font-weight:bold;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;border-left:5px solid #ddd;background-color:#f1f1f1;line-height:30px;} table {display:table;border-spacing:0;border-collapse:collapse;width:100%;border:thin solid #888888 !important;} th {border:thin solid #888888 !important;font-weight:bold;} td {border:thin solid #888888 !important;} .tr {text-align:right} .tc {text-align:center} .tl {text-align:left} .header {padding-left:20px;padding-right:20px;padding-bottom:20px;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;font-size:10px;} .header_tb {width:100%;border-spacing:0;border-collapse:collapse;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;font-size:10px;} .header_tb th {display:table-cell;padding:8px;line-height:1.42857;white-space:norwap;text-align:left;border:1px solid #ddd;background-color:#ececec;font-size:10px;} .header_tb td {display:table-cell;padding:8px 50px 8px 8px;line-height:1.42857;white-space:norwap;border:1px solid #ddd;font-size:10px;} .list {padding-left:20px;padding-right:20px;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;font-size:10px;} .table {display:table;border-spacing:0;border-collapse:collapse;width:100%;max-width:100%;border:thin solid #888888 !important;} .table > thead > tr > th {display:table-cell;border:thin solid #888888 !important;padding:8px;line-height:1.42857;white-space:norwap;text-align:left;} .table tr {display:table-row;vertical-align:inherit;border-color:inherit;} .table > tbody > tr > td {display:table-cell;border:thin solid #888888 !important;padding:8px;line-height:1.42857;white-space:norwap;} .table tbody {display:table-row-group;vertical-align:middle;border-color:inherit;} .table > tfoot > tr > td {display:table-cell;border:thin solid #888888 !important;padding:8px;line-height:1.42857;white-space:norwap;background-color:#f9f9f9;font-weight:bold;} .table tfoot {display:table-row-group;vertical-align:middle;border-color:inherit;}  tr.table-divider > td {border-bottom:1px solid #808080;} .optiondivider, .optiondivider > span {            padding: 0px 0x!important;        } .optionGroup {font-weight:bold;}	</style>
+</head>
+<body>
+    <div><a href="page_top"></a></div>
+    <!-- wrap frame -->
+    <div id="wrapper">
+        <!--nav header -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <!-- edit sy -->
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                <!-- gnb menu print -->
+                <ul class="nav metismenu" id="side-menu"><!-- Header Profile #--><li class="nav-header">  <!-- gnb profile -->  <div class="ibox collapsed  profile-element" style="margin-bottom:6px;">    <div class="common_profile">      <!-- name +  my ddealer -->      <h5>        <strong class="font-bold">Ed** HaeeA******</strong>        <!-- my dealer contact-->        <ul class="dropdown-menu dropdown-user my_dealer animated fadeInDown">          <!-- dealer profile -->          <li>            <a href="#">              <div class="col-sm-3">                <img alt="image" class="img-circle m-t-xs img-responsive" src="/com.kme.edds.resources/img/a2.jpg">              </div>              <div class="col-sm-9">                <h6>john smith</h6>                <i class="fa fa-envelope" aria-hidden="true"></i> <span>abcde@abcmotors.de</span><br>                <i class="fa fa-phone" aria-hidden="true"></i><span> (123) 456-7890</span>              </div>            </a>          </li>          <!-- /.dealer profile -->          <!-- dealer profile -->          <li>            <a href="#">              <div class="col-sm-3">                <img alt="image" class="img-circle m-t-xs img-responsive" src="/com.kme.edds.resources/img/a2.jpg">              </div>              <div class="col-sm-9">                <h6>john smith</h6>                <i class="fa fa-envelope" aria-hidden="true"></i> <span>abcde@abcmotors.deabcde@abcmotors.</span><br>                <i class="fa fa-phone" aria-hidden="true"></i><span> (123) 456-7890</span>              </div>            </a>          </li>          <!-- /.dealer profile -->        </ul>      <!-- /.my dealer contact-->      </h5>      <!-- /.name +  my ddealer -->      <!-- my role -->      <!-- /.my role -->    </div>    <!-- profile img -->    <div class="ibox-content profile_image">    </div>    <!-- /.profile img -->  </div>  <!-- /.gnb profile --><div class="logo-element">  EDD</div></li><!-- Side Menu --><!-- /.Side Menu --><li node-level="1" id="MENU027" component-url="com.kme.edds.dashboard.Dashboard2"><a href="com.kme.edds.dashboard.Dashboard2"><i class="fa fa-th-large"></i> <span class="nav-label">DEALER DASHBOARD</span></a></li><li node-level="1" id="MENU025" component-url="com.kme.edds.dealer.map.DealerMapLeafMap"><a href="com.kme.edds.dealer.map.DealerMapLeafMap"><i class="fa fa-map-o"></i> <span class="nav-label">DEALER MAP</span></a></li><li node-level="1" id="MENU002" component-url="com.kme.edds.dealer.list.DealerList"><a href="com.kme.edds.dealer.list.DealerList"><i class="fa fa-list-alt"></i> <span class="nav-label">DEALER LIST</span></a></li><li node-level="1" id="MENU032" component-url="com.kme.edds.dealer.list.DealerGroupList"><a href="com.kme.edds.dealer.list.DealerGroupList"><i class="fa fa-list-alt"></i> <span class="nav-label">DEALER GROUP</span></a></li><li node-level="1" id="MENU003" component-url="com.kme.edds.dealer.employee.DealerEmployeeList"><a href="com.kme.edds.dealer.employee.DealerEmployeeList"><i class="fa fa-group"></i> <span class="nav-label">DEALER EMPLOYEE</span></a></li><li node-level="1" id="MENU026" component-url="com.kme.edds.documents.EDDSDocuments"><a href="com.kme.edds.documents.EDDSDocuments"><i class="fa fa fa-file-text"></i> <span class="nav-label">DOCUMENTS</span></a></li>  <li node-level="1">      <a href="#"><i class="fa fa-address-book"></i> <span class="fa arrow"></span> <span class="nav-label"> USER ADMINISTRATION </span></a>      <ul class="nav nav-second-level collapse" aria-expanded="false"><li node-level="2" id="MENU010" component-url="com.kme.edds.mastermanagement.RoleCreate"><a href="com.kme.edds.mastermanagement.RoleCreate"> CREATE ROLE </a></li><li node-level="2" id="MENU011" component-url="com.kme.edds.admin.AssignMenuToRole"><a href="com.kme.edds.admin.AssignMenuToRole"> ASSIGN MENU TO ROLE </a></li><li node-level="2" id="MENU009" component-url="com.kme.edds.mastermanagement.RoleConfiguration"><a href="com.kme.edds.mastermanagement.RoleConfiguration"> USER ROLE CONFIGURATION </a></li><li node-level="2" id="MENU012" component-url="com.kme.edds.admin.UserManagement"><a href="com.kme.edds.admin.UserManagement"> USER MANAGEMENT </a></li><li node-level="2" id="MENU022" component-url="com.kme.edds.admin.DealershipOgranisationalChart"><a href="com.kme.edds.admin.DealershipOgranisationalChart"> DEALERSHIP ORGANISATIONAL CHART </a></li><li node-level="2" id="MENU028" component-url="com.kme.edds.admin.missingtool.DealerMissingDataTool"><a href="com.kme.edds.admin.missingtool.DealerMissingDataTool"> DEALER MISSING DATA TOOL </a></li><li node-level="2" id="MENU029" component-url="com.kme.edds.admin.missingtool.EmployeeMissingDataTool"><a href="com.kme.edds.admin.missingtool.EmployeeMissingDataTool"> EMPLOYEE MISSING DATA TOOL </a></li>      </ul>  </li>  <li node-level="1">      <a href="#"><i class="fa fa-cogs"></i> <span class="fa arrow"></span> <span class="nav-label"> GENERAL ADMINISTRATION </span></a>      <ul class="nav nav-second-level collapse" aria-expanded="false"><li node-level="2" id="MENU007" component-url="com.kme.edds.mastermanagement.PartnerTypeConfiguration"><a href="com.kme.edds.mastermanagement.PartnerTypeConfiguration"> PARTNER TYPE CONFIGURATION </a></li><li node-level="2" id="MENU008" component-url="com.kme.edds.mastermanagement.FieldHelpCreate"><a href="com.kme.edds.mastermanagement.FieldHelpCreate"> FIELD HELP MANAGEMENT </a></li><li node-level="2" id="MENU019" component-url="com.kme.edds.mastermanagement.LabelManagement"><a href="com.kme.edds.mastermanagement.LabelManagement"> LABEL MANAGEMENT </a></li><li node-level="2" id="MENU013" component-url="com.kme.edds.admin.HistoryLog"><a href="com.kme.edds.admin.HistoryLog"> HISTORY LOG </a></li><li node-level="2" id="MENU030" component-url="com.kme.edds.mastermanagement.DealerDCSIManagement"><a href="com.kme.edds.mastermanagement.DealerDCSIManagement"> DCSI ASSIGN TOOL </a></li><li node-level="2" id="MENU023" component-url="com.kme.edds.mastermanagement.CodeMasterManagement"><a href="com.kme.edds.mastermanagement.CodeMasterManagement"> CODE MASTER MANAGEMENT </a></li><li node-level="2" id="MENU031" component-url="com.kme.edds.mastermanagement.ContactDetailsManagement"><a href="com.kme.edds.mastermanagement.ContactDetailsManagement"> CONTACT DETAILS MANAGEMENT FIELD </a></li><li node-level="2" id="MENU033" component-url="com.kme.edds.mastermanagement.BatchJobLog"><a href="com.kme.edds.mastermanagement.BatchJobLog"> EDDS SYSTEM LOG </a></li><li node-level="2" id="MENU034" component-url="com.kme.edds.massupload.SIDatesExcelUploadManagement"><a href="com.kme.edds.massupload.SIDatesExcelUploadManagement"> SI DATES UPLOAD </a></li><li node-level="2" id="MENU039" component-url="com.kme.edds.massupload.ConnectedSystemExcelUploadManagement"><a href="com.kme.edds.massupload.ConnectedSystemExcelUploadManagement"> CONNECTED SYSTEM UPLOAD </a></li><li node-level="2" id="MENU035" component-url="com.kme.edds.postgresql.EDDSPostgreSQLDataSyncHistoryView"><a href="com.kme.edds.postgresql.EDDSPostgreSQLDataSyncHistoryView"> POSTGRE DATA SYNC HISTORY </a></li>      </ul>  </li>  <li node-level="1" class="active">      <a href="#"><i class="fa fa-bar-chart"></i> <span class="fa arrow"></span> <span class="nav-label"> REPORT </span></a>      <ul class="nav nav-second-level collapse in" aria-expanded="true"><li node-level="2" id="MENU017" component-url="com.kme.edds.report.SIInstallationResult" class="active"><a href="com.kme.edds.report.SIInstallationResult"> DND REPORT </a></li><li node-level="2" id="MENU036" component-url="com.kme.edds.report.EmployeeTurnoverStatus"><a href="com.kme.edds.report.EmployeeTurnoverStatus"> EMPLOYEE TURN OVER REPORT </a></li><li node-level="2" id="MENU037" component-url="com.kme.edds.report.AfterSalesWorkshopStatus"><a href="com.kme.edds.report.AfterSalesWorkshopStatus"> AFTER SALES WORKSHOP </a></li><li node-level="2" id="MENU038" component-url="com.kme.edds.report.DealerNavigationSystem"><a href="com.kme.edds.report.DealerNavigationSystem"> DEALER NAVIGATION SYSTEM </a></li>      </ul>  </li>  <li node-level="1" id="dashboard"><a href="com.kme.edds.mastermanagement.ProfileMasterManagement"><i class="fa fa-th-large"></i> <span class="nav-label">ProfileManagement</span></a></li>  <li>      <a href="#FIELD_FORCE_MENU" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-building"></i> <span class="nav-label">Field Force (Mockup) </span></a>      <ul class="nav nav-second-level collapse" id="FIELD_FORCE_MENU" aria-expanded="false">          <li node-level="2" id="field_force_category_management"><a href="com.kme.edds.fieldforce.CategoryList">Category Management</a></li>          <li node-level="2" id="field_force_task_management"><a href="com.kme.edds.fieldforce.TaskList">Task Management</a></li>          <li node-level="2" id="field_force_task_configuration_per_dealer"><a href="com.kme.edds.fieldforce.TaskConfiguration">Task Configuration</a></li>          <li node-level="2" id="field_force_field_staff_dashboard"><a href="com.kme.edds.fieldforce.FieldForcePerformance">Field Staff Dashboard</a></li>          <li node-level="2" id="field_force_dealer_list"><a href="com.kme.edds.fieldforce.VisitReportList">Visit Report</a></li>          <li node-level="2" id="field_force_performance"><a href="com.kme.edds.fieldforce.FieldForcePerformance">Field Force Performance</a></li>          <li node-level="2" id="field_force_evaluation_task"><a href="com.kme.edds.fieldforce.EvaluationTask">Evaluation Tasks</a></li>          <li node-level="2" id="field_force_weekly_visit_plan"><a href="com.kme.edds.fieldforce.WeeklyVisitPlan">Weekly Visit Plan</a></li>      </ul>  </li></ul>
+                <!-- /.gnb menu print -->
+            </div>
+            <div class="hidden-lg hidden-md logout_mobile">
+                <a href="login.html">
+                    <i class="fa fa-sign-out"></i> Log out
+                </a>
+            </div>
+        </nav>
+        <!-- /.nav header -->
+        <!-- body frame -->
+        <div id="page-wrapper" class="white-bg">
+            <!-- master top -->
+            <div class="row" id="page-header"><nav class="navbar navbar-static-top" role="navigation" style="height:67px;"><span class="" style="font-weight: bold;font-size: 40px;padding-left: 10px;float: left !important;font-style: italic;color: red;"> TEST</span>   <ul class="nav navbar-top-links navbar-right hidden-xs">    <li class="dropdown">       <a href="javascript:showNotificationsModal();">         <i class="fa fa-bell-o"></i> <span class="hidden-xs hidden-sm hidden-md" rv-i18n="LBL_WORKFLOW_NOTIFICATIONS"> Workflow Notifications</span> <span class="label label-warning" id="notifications-log-count">603</span>      </a>    </li>       <li class="dropdown" data-button-control="M118B01">         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">              <i class="fa fa-undo"></i>  <span class="hidden-xs hidden-sm hidden-md">Recent Dealer</span>  <span class="label label-warning" id="view-master-list-count">10</span>           </a>            <ul class="dropdown-menu dropdown-alerts animated fadeIn" id="view-master-list" style="right:-150px;">              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB03&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000094602&amp;parent_partner_code=1000094602&amp;root_partner_code=1000094602&amp;sap_dealer_code=C07VA02648&amp;partner_name=J%C3%A4hler%20GmbH');">                      <div>                          <i class="fa fa-building fa-fw"></i> Jähler GmbH (C07VA02648)                          <span class="pull-right text-muted small">14 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB03&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000094562&amp;parent_partner_code=1000099742&amp;root_partner_code=1000099742&amp;sap_dealer_code=C07VA02655&amp;partner_name=Hankemeier%20Automobile%20GmbH%20%26%20Co.%20KG');">                      <div>                          <i class="fa fa-building fa-fw"></i> Hankemeier Automobile GmbH &amp; Co. KG (C07VA02655)                          <span class="pull-right text-muted small">14 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART005&amp;role_type=ROLE001&amp;partner_code=1000039912&amp;parent_partner_code=1000039932&amp;root_partner_code=1000200459&amp;sap_dealer_code=C11VC01156&amp;partner_name=AUTOCENTRI%20BALDUINA%20S.R.L.');">                      <div>                          <i class="fa fa-building fa-fw"></i> AUTOCENTRI BALDUINA S.R.L. (C11VC01156)                          <span class="pull-right text-muted small">54 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB07&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000029632&amp;parent_partner_code=1000070522&amp;root_partner_code=1000070522&amp;sap_dealer_code=C01VA00006&amp;partner_name=Zellhofer%20GmbH%20%26%20Co%20KG%205%20test%2011');">                      <div>                          <i class="fa fa-building fa-fw"></i> Zellhofer GmbH &amp; Co KG 5 test 11 (C01VA00006)                          <span class="pull-right text-muted small">54 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB06&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000018382&amp;parent_partner_code=1000018382&amp;root_partner_code=1000018382&amp;sap_dealer_code=C02VA06445&amp;partner_name=Garage%20La%20Scala');">                      <div>                          <i class="fa fa-building fa-fw"></i> Garage La Scala (C02VA06445)                          <span class="pull-right text-muted small">59 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000103285&amp;parent_partner_code=1000103285&amp;root_partner_code=1000103285&amp;sap_dealer_code=C11VC09202&amp;partner_name=BIANCHESSI%20AUTO%20S.r.l.');">                      <div>                          <i class="fa fa-building fa-fw"></i> BIANCHESSI AUTO S.r.l. (C11VC09202)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000103285&amp;parent_partner_code=1000103285&amp;root_partner_code=1000103285&amp;sap_dealer_code=C11VC09202&amp;partner_name=BIANCHESSI%20AUTO%20S.r.l.');">                      <div>                          <i class="fa fa-building fa-fw"></i> BIANCHESSI AUTO S.r.l. (C11VC09202)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000041822&amp;parent_partner_code=1000094252&amp;root_partner_code=1000094252&amp;sap_dealer_code=C11VC09200&amp;partner_name=PIEFFE%20AUTO%20S.r.l.');">                      <div>                          <i class="fa fa-building fa-fw"></i> PIEFFE AUTO S.r.l. (C11VC09200)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART002&amp;role_type=ROLE001&amp;partner_code=1000041082&amp;parent_partner_code=1000041092&amp;root_partner_code=1000093432&amp;sap_dealer_code=C11VC02118&amp;partner_name=LEONORI%20S.P.A.');">                      <div>                          <i class="fa fa-building fa-fw"></i> LEONORI S.P.A. (C11VC02118)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000041092&amp;parent_partner_code=1000093432&amp;root_partner_code=1000093432&amp;sap_dealer_code=C11VC09118&amp;partner_name=LEONORI%20S.P.A.');">                      <div>                          <i class="fa fa-building fa-fw"></i> LEONORI S.P.A. (C11VC09118)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li></ul>        </li>       <li style="margin-right:0px;" data-button-control="M118B02">            <a href="javascript:showDisclaimer('policy');">              <i class="fa fa-gavel"></i> <span class="hidden-xs hidden-sm hidden-md">Privacy Policy</span>          </a>        </li>       <li style="margin-right:0px;" data-button-control="M118B03">            <a href="javascript:showDisclaimer('cookie');">              <i class="fa fa-info-circle"></i> <span class="hidden-xs hidden-sm hidden-md">Cookies View</span>          </a>        </li>       <li style="margin-right:0px;" data-button-control="M118B04">            <a href="javascript:showEDDSUserInfo();"><i class="fa fa-id-card fa-lg"></i><span class="hidden-xs hidden-sm hidden-md">User Info</span></a>        </li>       <li style="margin-right:0px;" data-button-control="M118B06">            <a href="javascript:changeLanguage();"><i class="fa fa-language"></i><span class="hidden-xs hidden-sm hidden-md">Language</span></a>        </li>       <li id="rfc_info" style="margin-right:0px;">            <a href="javascript:rfcInfo();"><i class="fa fa-user-secret"></i></a>       </li>       <li class="dropdown" data-button-control="M118B07">         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">              <i class="fa fa-question-circle-o"></i>  <span class="hidden-xs hidden-sm hidden-md">Help</span>            </a>            <ul class="dropdown-menu dropdown-alerts animated fadeIn" id="view-help">               <li style="float:none !important;">                 <a href="javascript:showUserManual(1);">                        <i class="fa fa-map-o fa-lg"></i> User Manual (KME)                 </a>                </li>               <li style="float:none !important;">                 <a href="javascript:acceptUseCookies('openModal');">                        <i class="fa fa-download fa-lg"></i> USER MANUAL DOWNLOAD                   </a>                </li>           </ul>       </li>       <li style="margin-right:40px;">         <a href="javascript:logout();"><i class="fa fa-sign-out"></i> <span class="hidden-xs hidden-sm hidden-md">Log out</span></a>        </li>    </ul>  <ul class="nav navbar-top-links navbar-right hidden-sm hidden-md hidden-lg">        <li style="margin-top:15px;">            <div class="dropdown">                <button id="show-dropdown-funtion" class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-folder-o"></i></button>                    <ul class="dropdown-menu fadeInRight animated" style="left: auto;right: 1px;">                    <li style="float:none !important;"><a href="javascript:showNotificationsModal();" class="count-info"><i class="fa fa-bell-o fa-lg"></i> Workflow Notifications <span class="label label-warning" id="notifications-log-count"></span></a></li>                  <li class="divider" style="float:none !important;"></li>                    <li style="float:none !important;"><a id="li-history-log" class="count-info" href="#"><i class="fa fa-check-square-o fa-lg"></i> History Log <span class="label label-warning" id="history-log-count">5</span></a></li>                 <li class="divider" style="float:none !important;"></li>                    <li style="float:none !important;"><a id="li-view-master-list" class="count-info" href="#"><i class="fa fa-undo fa-lg"></i> Recent Dealer <span class="label label-warning" id="view-master-list-count"></span></a></li>                    <li class="divider" style="float:none !important;"></li>                        <li style="float:none !important;"><a href="javascript:showDisclaimer('policy');"><i class="fa fa-gavel fa-lg"></i> Privacy Policy</a></li>                     <li class="divider" style="float:none !important;"></li>                        <li style="float:none !important;"><a href="javascript:showDisclaimer('cookie');"><i class="fa fa-info-circle fa-lg"></i> Cookies View</a></li>                     <li class="divider" style="float:none !important;"></li>                        <li style="float:none !important;"><a href="javascript:showEDDSUserInfo();"><i class="fa fa-id-card fa-lg"></i> User Info</a></li>                      <li class="divider" style="float:none !important;"></li>                        <li style="float:none !important;"><a href="javascript:changeLanguage();"><i class="fa fa-language fa-lg"></i> Language</a></li>                        <li class="divider" style="float:none !important;"></li>                        <li id="rfc_info" style="float:none !important;"><a href="javascript:rfcInfo();"><i class="fa fa-user-secret fa-lg"></i> RFC Info</a></li>                      <li class="divider" style="float:none !important;"></li>                        <li style="float:none !important;padding-bottom:10px;"><a href="javascript:logout();"><i class="fa fa-sign-out fa-lg"></i> Log out</a></li>                    </ul>                    <ul class="dropdown-menu dropdown-alerts animated fadeInRight" id="sm-notifications-log" style="display:none;left: auto;right: 1px;"></ul>                  <ul class="dropdown-menu dropdown-alerts animated fadeInRight" id="sm-history-log" style="display:none;left: auto;right: 1px;">              <li style="float:none !important;">                  <a href="javascript:void(0);" style="cursor: auto;>                      <div>                          <i class=" fa="" fa-edit="" fa-fw"="">Requested Dealer Status EddsHaee********                          <span class="pull-right text-muted small">14/11/2024 08:17:16</span>                                        </a>              </li>              <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:void(0);" style="cursor: auto;>                      <div>                          <i class=" fa="" fa-edit="" fa-fw"="">Approved Urban Type EddsHaee********                          <span class="pull-right text-muted small">04/11/2024 06:23:06</span>                                        </a>              </li>              <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:void(0);" style="cursor: auto;>                      <div>                          <i class=" fa="" fa-edit="" fa-fw"="">Changed Partner web URL EddsHaee********                          <span class="pull-right text-muted small">04/11/2024 06:22:59</span>                                        </a>              </li>              <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:void(0);" style="cursor: auto;>                      <div>                          <i class=" fa="" fa-edit="" fa-fw"="">Approved Site Information Debpr***** Da*                          <span class="pull-right text-muted small">15/10/2024 15:40:10</span>                                        </a>              </li>              <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:void(0);" style="cursor: auto;>                      <div>                          <i class=" fa="" fa-edit="" fa-fw"="">Created Dealer Contact Information Debpr***** Da*                          <span class="pull-right text-muted small">15/10/2024 15:39:13</span>                                        </a>              </li>              <li class="divider" style="float:none !important;"></li><li>    <div class="text-center link-block">        <a href="javascript:goToUrl('com.kme.edds.admin.HistoryLog', '');">            <strong style="color:#337ab7">See All Alerts</strong>            <i class="fa fa-angle-right" style="color:#337ab7"></i>        </a>    </div></li></ul>                 <ul class="dropdown-menu dropdown-alerts animated fadeInRight" id="sm-view-master-list" style="display:none;left: auto;right: 1px;">              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB03&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000094602&amp;parent_partner_code=1000094602&amp;root_partner_code=1000094602&amp;sap_dealer_code=C07VA02648&amp;partner_name=J%C3%A4hler%20GmbH');">                      <div>                          <i class="fa fa-building fa-fw"></i> Jähler GmbH (C07VA02648)                          <span class="pull-right text-muted small">14 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB03&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000094562&amp;parent_partner_code=1000099742&amp;root_partner_code=1000099742&amp;sap_dealer_code=C07VA02655&amp;partner_name=Hankemeier%20Automobile%20GmbH%20%26%20Co.%20KG');">                      <div>                          <i class="fa fa-building fa-fw"></i> Hankemeier Automobile GmbH &amp; Co. KG (C07VA02655)                          <span class="pull-right text-muted small">14 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART005&amp;role_type=ROLE001&amp;partner_code=1000039912&amp;parent_partner_code=1000039932&amp;root_partner_code=1000200459&amp;sap_dealer_code=C11VC01156&amp;partner_name=AUTOCENTRI%20BALDUINA%20S.R.L.');">                      <div>                          <i class="fa fa-building fa-fw"></i> AUTOCENTRI BALDUINA S.R.L. (C11VC01156)                          <span class="pull-right text-muted small">54 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB07&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000029632&amp;parent_partner_code=1000070522&amp;root_partner_code=1000070522&amp;sap_dealer_code=C01VA00006&amp;partner_name=Zellhofer%20GmbH%20%26%20Co%20KG%205%20test%2011');">                      <div>                          <i class="fa fa-building fa-fw"></i> Zellhofer GmbH &amp; Co KG 5 test 11 (C01VA00006)                          <span class="pull-right text-muted small">54 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB06&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000018382&amp;parent_partner_code=1000018382&amp;root_partner_code=1000018382&amp;sap_dealer_code=C02VA06445&amp;partner_name=Garage%20La%20Scala');">                      <div>                          <i class="fa fa-building fa-fw"></i> Garage La Scala (C02VA06445)                          <span class="pull-right text-muted small">59 days ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000103285&amp;parent_partner_code=1000103285&amp;root_partner_code=1000103285&amp;sap_dealer_code=C11VC09202&amp;partner_name=BIANCHESSI%20AUTO%20S.r.l.');">                      <div>                          <i class="fa fa-building fa-fw"></i> BIANCHESSI AUTO S.r.l. (C11VC09202)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000103285&amp;parent_partner_code=1000103285&amp;root_partner_code=1000103285&amp;sap_dealer_code=C11VC09202&amp;partner_name=BIANCHESSI%20AUTO%20S.r.l.');">                      <div>                          <i class="fa fa-building fa-fw"></i> BIANCHESSI AUTO S.r.l. (C11VC09202)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000041822&amp;parent_partner_code=1000094252&amp;root_partner_code=1000094252&amp;sap_dealer_code=C11VC09200&amp;partner_name=PIEFFE%20AUTO%20S.r.l.');">                      <div>                          <i class="fa fa-building fa-fw"></i> PIEFFE AUTO S.r.l. (C11VC09200)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART002&amp;role_type=ROLE001&amp;partner_code=1000041082&amp;parent_partner_code=1000041092&amp;root_partner_code=1000093432&amp;sap_dealer_code=C11VC02118&amp;partner_name=LEONORI%20S.P.A.');">                      <div>                          <i class="fa fa-building fa-fw"></i> LEONORI S.P.A. (C11VC02118)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li> <li class="divider" style="float:none !important;"></li>              <li style="float:none !important;">                  <a href="javascript:goToUrl('com.kme.edds.dealer.DealerDetail', 'company_code=KB08&amp;partner_type=PART001&amp;role_type=ROLE001&amp;partner_code=1000041092&amp;parent_partner_code=1000093432&amp;root_partner_code=1000093432&amp;sap_dealer_code=C11VC09118&amp;partner_name=LEONORI%20S.P.A.');">                      <div>                          <i class="fa fa-building fa-fw"></i> LEONORI S.P.A. (C11VC09118)                          <span class="pull-right text-muted small">2 months ago </span>                      </div>                  </a>              </li></ul>            </div>        </li>        <li>           <button class="navbar-minimalize minimalize-styl-2 btn btn-primary" style="height:35px;"><i class="fa fa-bars"></i></button>        </li>    </ul></nav></div>
+
+            <!-- /.master top -->
+            <!-- page title -->
+            <div class="row wrapper border-bottom white-bg page-heading" id="page-title"></div>
+            <!-- /.page title -->
+            <!-- contents area -->
+            <div class="wrapper wrapper-content  animated fadeInRight">
+            	
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <!-- search -->
+                            <div class="row page_commmon_top_second">
+                            	<div class="col-sm-2">
+                            		<select id="s_year" name="s_year" class="input-sm form-control input-s-sm inline " >
+                            			<!-- 
+                                    	<option value="2019">2019</option>
+                                    	<option value="2020">2020</option>
+                                    	 -->
+									</select>
+                            	</div>
+                            	<div class="col-sm-2">
+                            		<select id="s_month" name="s_month" class="input-sm form-control input-s-sm inline " >
+                                        <option value="">---All---</option>
+                                    	<option value="01">01</option>
+                                    	<option value="02">02</option>
+                                    	<option value="03">03</option>
+                                    	<option value="04">04</option>
+                                    	<option value="05">05</option>
+                                    	<option value="06">06</option>
+                                    	<option value="07">07</option>
+                                    	<option value="08">08</option>
+                                    	<option value="09">09</option>
+                                    	<option value="10">10</option>
+                                    	<option value="11">11</option>
+                                    	<option value="12">12</option>
+									</select>
+                            	</div>
+                            	<div class="col-sm-8">
+                            		<div class="input-group">
+	                                    <select id="s_company_code" name="s_company_code" class="input-sm form-control input-s-sm inline " >
+										</select>
+	                                    <span class="input-group-btn">
+	                                        <button type="button" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+	                                        <button type="button" id="btn-download-excel" class="btn btn-white"><i class="fa fa-file-excel-o"></i> <span class="hidden-xs" rv-i18n="LBL_EXCEL">Excel</span></button>
+	                                        
+	                                        <button type="button" id="btn-download-excel-new" class="btn btn-white"><i class="fa fa-file-excel-o"></i> <span class="hidden-xs">Excel NEW</span></button>
+	                                        
+	                                        <button type="button" id="btn-data-update" class="btn btn-white"><i class="fa fa-edit"></i> Plan Data Update</button>
+	                                        <button type="button" id="btn-text-update" class="btn btn-white"><i class="fa fa-edit"></i> Memo Text Update</button>
+	                                    </span>
+	                                </div>
+                            	</div>
+                            </div>
+                            <!-- /.search -->
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-bordered" cellspacing="0" >
+                                            <thead>
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    <th>Dealer Development (regarding Newly-opened, Terminated, Replaced dealers, K-DEP, etc)</th>
+                                                    <th>Global SI</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                                <tr>
+                                                    <td id="">Yearly Strategy Issue</td>
+                                                    <td><textarea class="form-control" rows="3" maxlength="200" id="view_text_data_01" readonly="readonly"></textarea></td>
+                                                    <td><textarea class="form-control" rows="3" maxlength="200" id="view_text_data_02" readonly="readonly"></textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="s_monthly_results_text">Monthly Results Issues in </td>
+                                                    <td><textarea class="form-control" rows="3" maxlength="200" id="view_text_data_03" readonly="readonly"></textarea></td>
+                                                    <td><textarea class="form-control" rows="3" maxlength="200" id="view_text_data_04" readonly="readonly"></textarea></td>
+                                                </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <div class="col-sm-2" style="padding:0" >
+                                        <table id="grid-table" class="table table-bordered" cellspacing="0" width="20%" style=""><!-- white-space:pre; -->
+                                            <thead>
+                                                <tr>
+                                                    <th style="height: 102px;" colspan="3">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="3" >Newly Opened</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" >Terminated</td>
+                                                </tr>
+                                                <tr class="table-divider">
+                                                    <td colspan="3" >Replaced</td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="7" class="active" ></td>
+                                                    <td colspan="2" class="active" >Main Dealer</td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="4" ></td>
+                                                    <td >KIA Exclusive</td>
+                                                </tr>
+                                                <tr>
+                                                    <td >KIA Exclusive (%)</td>
+                                                </tr>
+                                                <tr>    
+                                                    <td >3S Dealer</td>
+                                                </tr>
+                                                <tr>
+                                                    <td >3S Dealer (%)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="active" >Outlet</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="active" >Sub Dealer</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="active" >Point of Sales</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="active" >Service Only Points(2S)</td>
+                                                </tr>
+                                                <tr class="warning">
+                                                    <td colspan="3" >Total Number of Dealers</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="active" >SI Plan/Result in Year</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" class="active" >Cumulative Active SI Installations</td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="5" class="active" ></td>
+                                                    <td colspan="2" class="active" >Applied Rate (%)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="4" ></td>
+                                                    <td>Chrome Symbol (Aggregated)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float: right;">Applied Rate</td>
+                                                </tr>
+                                                <tr>
+                                                    <td >Full Red Cube (Aggregated)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float: right;">Applied Rate</td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="3" class="active" ></td>
+                                                    <td colspan="3" class="active" >Dealer Terminated Total</td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="2" ></td>
+                                                    <td >SI Not Applied</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SI Applied</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-sm-2" style="padding:0" >
+                                        <table id="grid-total-table" class="table table-bordered" cellspacing="0" width="20%">
+                                            
+                                            <thead>
+                                                <tr>
+                                                    <th style="height: 102px;">Y<span id="result_year"></span> Result</th>
+                                                    <th style="height: 102px;">Y<span id="plan_year"></span> Plan</th>
+                                                    <th style="height: 102px;">+/-</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="3"  style="text-align: center;"> NO DATA</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-sm-8" style="padding:0" >
+                                        <table id="grid-table2" class="table table-bordered" cellspacing="0" width="80%">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="24">Monthly Plan & Result in Y<span id="t_plan_year"></span></th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2">Jan</th>
+                                                    <th colspan="2">Feb</th>
+                                                    <th colspan="2">Mar</th>
+                                                    <th colspan="2">Apr</th>
+                                                    <th colspan="2">May</th>
+                                                    <th colspan="2">Jun</th>
+                                                    <th colspan="2">Jul</th>
+                                                    <th colspan="2">Aug</th>
+                                                    <th colspan="2">Sep</th>
+                                                    <th colspan="2">Oct</th>
+                                                    <th colspan="2">Nov</th>
+                                                    <th colspan="2">Dec</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                    <th>Plan</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="24" style="text-align: center;"> NO DATA</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- /.contents area -->
+        </div><!-- /.body frame -->
+    </div><!-- /.wrap frame -->
+   
+    <!-- footer -->
+    <div class="footer">
+        <div class="ad_motif">
+            <span class="sr-only">kia</span>
+        </div>
+    </div><!-- /.footer -->  
+    
+ 	<!-- Modal for Plan Data Update -->
+    <div class="modal inmodal" id="modal_update_view" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-full">
+		    <div class="modal-content animated bounceInRight">
+		        <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only" rv-i18n="BTN_CLOSE">Close</span></button>
+		            <h4 class="modal-title" id="plain_data_update_title">Plan Data Update</h4>
+		        </div>
+		        <div class="modal-body">
+		            <div class="panel panel-default">
+		                <div class="panel-body">
+		                    
+		                    <div class="row page_commmon_top_second">
+		                		<div class="col-sm-4">
+                                    <select id="p_company_code" name="p_company_code" class="input-sm form-control input-s-sm inline " >
+									</select>
+                            	</div>
+                            	<div class="col-sm-4">
+                            		<select id="p_year" name="p_year" class="input-sm form-control input-s-sm inline " >
+                            			<option value="">Year</option>
+                            			
+									</select>
+                            	</div>
+                            	<div class="col-sm-4 text-right">
+                            	    <button type="button" id="btn-modal-plan-search"         class="btn btn-primary" data-dismiss="modal"><i class="fa fa-search"       ></i> Search</button>
+                            	    <button type="button" id="btn-modal-plan-change-status"  class="btn btn-primary hide" data-dismiss="modal"><i class="fa fa-save"></i> Change To Update Status</button>
+                            		<button type="button" id="btn-modal-plan-save"                class="btn btn-primary" data-dismiss="modal" disabled><i class="fa fa-save"></i> Save</button>
+                            		<button type="button" id="btn-modal-plan-submit"              class="btn btn-primary" data-dismiss="modal" disabled><i class="fa fa-paper-plane-o"></i> Submit</button>
+                            		<button type="button" id="btn-modal-plan-download-excel" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-file-excel-o" ></i> Excel</button>
+                            	</div>
+                            </div>
+		                    <div class="ibox-content">
+                                <div class="table-responsive">
+                                    <div class="col-sm-3" style="padding:0" >
+                                        <table id="modal-grid-table" class="table table-bordered" cellspacing="0" width="20%">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5" style="border-bottom: #F5F5F6 !important;">&nbsp;</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="5" style="border-top: #F5F5F6 !important;">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="6" style="height:54px;">Total Dealer Network</td>
+                                                </tr>                                            
+                                                <tr>
+                                                    <td rowspan="10" class="active" style="width:5px;height:54px;"></td>
+                                                    <td colspan="4" style="height:54px;">Point of Sales (1S+3S)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="8" class="active" style="width:5px;height:54px;"></td>
+                                                    <td rowspan="4" class="active" style="width:5px;height:54px;"></td>
+                                                    <td style="height:54px;">Main Dealer - Sales</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height:54px;">Newly Opened</td>
+                                                </tr>                                                
+                                                <tr>
+                                                    <td style="height:54px;">Terminated</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height:54px;">Replaced</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" style="height:54px;">Kia Exclusive</td>
+                                                </tr>   
+                                                <tr>
+                                                    <td colspan="4" style="height:54px;">3S Dealer</td>
+                                                </tr>                                                  
+                                                <tr>
+                                                    <td rowspan="2" class="active" style="width:5px;height:54px;"></td>
+                                                    <td style="height:54px;">Outlet</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="height:54px;">Sub Dealer</td>
+                                                </tr>   
+                                                <tr>
+                                                    <td colspan="4" style="height:54px;">Point of Service (2S)</td>
+                                                </tr> 
+                                                <tr>
+                                                    <td colspan="6" style="height:54px;">
+                                                        Cumulative Kia Store (SI 2.0)<br/>
+                                                        completion (exterior and interior)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="3" class="active" style="width:5px;"></td>
+                                                    <td colspan="5" style="height:54px;">Application rate %</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="height:54px;">
+                                                        Cumulative Kia Store (SI 2.0)<br/>
+                                                        completion - (exterior only)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="height:54px;">Application rate %</td>
+                                                </tr> 
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-sm-9" style="padding:0" >
+                                        <table id="modal-grid-table2" class="table table-bordered" cellspacing="0" width="80%">
+                                            <thead>
+                                                <tr>
+                                                	
+													<th style="text-align:center;">Y<span class="t_result_year"></span></th>
+                                                    <th style="text-align:center;" colspan="2">Y<span class="t_plan_year"></span></th>
+                                                    <th style="text-align:center;">Y<span class="t_result_year">2023</span></th>
+                                                    <th style="text-align:center;" colspan="2">Y<span class="t_plan_year"></span></th>
+                                                    <th style="text-align:center;" colspan="12">Y<span class="plan_year"></span> Business Plan</th>
+                                                </tr>
+                                                <tr>
+                                                	
+													<th style="text-align:center;width:6.5%;">FC</th>
+                                                    <th style="text-align:center;width:6.5%;">BP</th>
+                                                    <th style="text-align:center;width:6.5%;">YoY</th>
+                                                    <th style="text-align:center;width:6.5%;">Result</th>
+                                                    <th style="text-align:center;width:6.5%;">BP</th>
+                                                    <th style="text-align:center;width:6.5%;">YoY</th>
+                                                    <th style="text-align:center;">Jan</th>
+                                                    <th style="text-align:center;">Feb</th>
+                                                    <th style="text-align:center;">Mar</th>
+                                                    <th style="text-align:center;">Apr</th>
+                                                    <th style="text-align:center;">May</th>
+                                                    <th style="text-align:center;">Jun</th>
+                                                    <th style="text-align:center;">Jul</th>
+                                                    <th style="text-align:center;">Aug</th>
+                                                    <th style="text-align:center;">Sep</th>
+                                                    <th style="text-align:center;">Oct</th>
+                                                    <th style="text-align:center;">Nov</th>
+                                                    <th style="text-align:center;">Dec</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                	
+										    		<td colspan="18" style="text-align: center;"> NO DATA</td>
+													
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <div><h3>Strategies and Issues</h3></div>
+                                    <div class="col-sm-12" style="padding:0;">
+                                        <table class="table table-bordered" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align:center; vertical-align: middle; width: 16.6%;">
+                                                        Dealer Network<br/>
+                                                        development
+                                                    </td>
+                                                    <td class="colorG"><textarea class="form-control" rows="4" id="DND_data_01" readonly></textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center; vertical-align: middle;">
+                                                        Global SI 2.0
+                                                    </td>
+                                                    <td class="colorG"><textarea class="form-control" rows="4" id="GS2_data_02" readonly></textarea></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                
+								<div class="table-responsive">
+                                    <div><h3>Message for KIA EU</h3></div>
+                                    <div class="col-sm-12" style="padding:0;">
+                                        <table class="table table-bordered" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align:center; vertical-align: middle; width: 16.6%;">
+                                                        Comments
+                                                    </td>
+                                                    <td class="colorG"><textarea class="form-control" rows="4" id="DND_data_03" readonly></textarea></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="ibox-content" style="display:none;">
+                                <div class="table-responsive" id="export-html-table-planData" data-SheetName="sheet" >
+                                    <div><h2 id="plandata-excel-sheet-header"></h2></div>
+                                    <table id="export-grid-table-1" class="table table-bordered" border='1' style="border:1px solid black;" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2" colspan="4" style="width:20px;background-color: #F5F5F6;">&nbsp;</th>
+                                                
+												<th style="background-color: #F5F5F6;">Y<span class="t_result_year"></span></th>
+                                                <th colspan="2" style="background-color: #F5F5F6;">Y<span class="t_plan_year"></span></th>
+                                                <th style="background-color: #F5F5F6;">Y<span class="t_result_year">2023</span></th>
+                                                <th colspan="2" style="background-color: #F5F5F6;">Y<span class="t_plan_year">2024</span></th>
+                                                <th colspan="12" style="background-color: #F5F5F6;">Y<span class="plan_year">2024</span> Business Plan</th>
+                                            </tr>
+                                            <tr>
+                                            	
+												<th style="width:10px;background-color: #F5F5F6;">FC dd</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">BP</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">YoY</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Result</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">BP</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">YoY</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Jan</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Feb</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Mar</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Apr</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">May</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Jun</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Jul</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Aug</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Sep</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Oct</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Nov</th>
+                                                <th style="width:10px;background-color: #F5F5F6;">Dec</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                    	<h3>Strategies and Issues</h3>
+                                    </div>
+                                    <table id="export-grid-table-2" class="table table-bordered" border='1' style="border:1px solid black;" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="4" style="text-align:center; vertical-align: middle;">Dealer Network development</td>
+                                                <td colspan="18" id="DND_text_data_01" style="height:50px;width:1500px;">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align:center; vertical-align: middle;">Global SI 2.0</td>
+                                                <td colspan="18" id="GS2_text_data_02" style="height:50px;width:1500px;">&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    
+									<div>
+                                    	<h3>Message for KIA EU</h3>
+                                    </div>
+                                    <table id="export-grid-table-3" class="table table-bordered" border='1' style="border:1px solid black;" cellspacing="0" width="100%">
+                                    	<tbody>
+                                            <tr>
+                                                <tr>
+	                                                <td colspan="4" style="text-align:center; vertical-align: middle;">Comments</td>
+	                                                <td colspan="18" id="DND_text_data_03" style="height:50px;width:1500px;">&nbsp;</td>
+	                                            </tr>
+                                            </tr>
+                                        </tbody>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    
+                                </div>
+                            </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="modal-footer">
+		            <button type="button" class="btn btn-white" data-dismiss="modal" rv-i18n="BTN_CANCEL" rv-i18n-append><i class="fa fa-times"></i> <!-- Cancel --></button>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<!-- /.Modal for Plan Data Update -->
+	
+    <!-- Modal for Text Data Update -->
+    <div class="modal inmodal" id="modal_text_update_view" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-full">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only" rv-i18n="BTN_CLOSE">Close</span></button>
+                    <h4 class="modal-title">Text Data Update</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                        
+                            <div class="row page_commmon_top_second">
+                                <div class="col-sm-4">
+                                    <select id="m_company_code" name="m_company_code" class="input-sm form-control input-s-sm inline " >
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select id="m_year" name="m_year" class="input-sm form-control input-s-sm inline " >
+                                        <option value="">Year</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select id="m_month" name="m_month" class="input-sm form-control input-s-sm inline " >
+                                        <option value="">Month</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-12">
+                                    <table class="table table-bordered" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>&nbsp;</th>
+                                                <th>Dealer Development (regarding Newly-opened, Terminated, Replaced dealers, K-DEP, etc)</th>
+                                                <th>Global SI</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Yearly Strategy Issue</td>
+                                                <td><textarea class="form-control" rows="3" maxlength="200" name="text_data_01" id="text_data_01"></textarea></td>
+                                                <td><textarea class="form-control" rows="3" maxlength="200" name="text_data_02" id="text_data_02"></textarea></td>
+                                            </tr>
+                                            <tr>
+                                                <td id="m_monthly_results_text">Monthly Results Issues in </td>
+                                                <td><textarea class="form-control" rows="3" maxlength="200" name="text_data_03" id="text_data_03"></textarea></td>
+                                                <td><textarea class="form-control" rows="3" maxlength="200" name="text_data_04" id="text_data_04"></textarea></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal" rv-i18n="BTN_CANCEL" rv-i18n-append><i class="fa fa-times"></i> <!-- Cancel --></button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-modal-text-update" ><i class="fa fa-edit"></i> Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.Modal for Text Data Update -->
+	
+    <!-- Modal for Excel Down New -->
+    <div class="modal inmodal" id="modal_exceldownload_new" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-full">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only" rv-i18n="BTN_CLOSE">Close</span></button>
+                    <h4 class="modal-title">EXCEL EXPORT NEW</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            
+                            <div class="row page_commmon_top_second">
+                                <div class="col-sm-3">
+                                    <select id="e_company_code" name="e_company_code" class="input-sm form-control input-s-sm inline selectpicker " multiple data-selected-text-format="count" data-actions-box="true">
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select id="e_year" name="e_year" class="input-sm form-control input-s-sm inline " >
+                                        <option value="">Year</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select id="e_month" name="e_month" class="input-sm form-control input-s-sm inline " >
+                                        <option value="">---All---</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-sm-3 text-right">
+                                    <button type="button" id="btn-modal-excel-data-search" data-dismiss="modal"  class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="" style="margin-top:10px;" id="excel_export_companies">
+                                
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal" rv-i18n="BTN_CANCEL" rv-i18n-append><i class="fa fa-times"></i> <!-- Cancel --></button>
+                    <button type="button" id="btn-download-excel-new-down" class="btn btn-white"><i class="fa fa-file-excel-o"></i> <span class="hidden-xs">Excel</span></button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /. Modal for Excel Down New -->
+
+    <!-- Custom and plugin javascript -->
+    <script src="../js/plugins/pace/pace.min.js"></script>
+    <!-- Peity -->
+    <script src="../js/plugins/peity/jquery.peity.min.js"></script>
+    <!-- report export script -->
+    <script src="../js/plugins/rvExport/rv-report-export.js"></script>
+    <!-- moment -->
+    <script src="../js/plugins/moment/moment.min.js"></script>
+    
+    <script>
+    
+    $(document).ready(function() {
+        //loadDefaultPageDom();
+        //loadCompanyCode();
+        bindEvent();
+   		
+		//i18n_master.load();
+    });
+    </script>
+    <script src="../js/edd-init.js"></script>
+</body>
+</html>
+</body></html>
