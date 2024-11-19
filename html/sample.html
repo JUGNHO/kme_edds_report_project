@@ -87,6 +87,11 @@
 	input[type=number] {
 	  -moz-appearance: textfield;
 	}
+
+    .myChartDiv {
+      max-width: 600px;
+      max-height: 400px;
+    }
     </style>
     <style>.container {background:white;display:block;margin:0.5cm auto;box-shadow:0 0 0.5cm rgb(0,0,0,0.5)} .title {padding:10px 20px;font-size:20px;font-weight:bold;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;}  .title2 {padding-left:10px;margin-top:40px;font-size:12px;font-weight:bold;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;border-left:5px solid #ddd;background-color:#f1f1f1;line-height:30px;} table {display:table;border-spacing:0;border-collapse:collapse;width:100%;border:thin solid #888888 !important;} th {border:thin solid #888888 !important;font-weight:bold;} td {border:thin solid #888888 !important;} .tr {text-align:right} .tc {text-align:center} .tl {text-align:left} .header {padding-left:20px;padding-right:20px;padding-bottom:20px;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;font-size:10px;} .header_tb {width:100%;border-spacing:0;border-collapse:collapse;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;font-size:10px;} .header_tb th {display:table-cell;padding:8px;line-height:1.42857;white-space:norwap;text-align:left;border:1px solid #ddd;background-color:#ececec;font-size:10px;} .header_tb td {display:table-cell;padding:8px 50px 8px 8px;line-height:1.42857;white-space:norwap;border:1px solid #ddd;font-size:10px;} .list {padding-left:20px;padding-right:20px;font-family:Verdana, Geneva, sans-serif;color:#4a4a4a;font-size:10px;} .table {display:table;border-spacing:0;border-collapse:collapse;width:100%;max-width:100%;border:thin solid #888888 !important;} .table > thead > tr > th {display:table-cell;border:thin solid #888888 !important;padding:8px;line-height:1.42857;white-space:norwap;text-align:left;} .table tr {display:table-row;vertical-align:inherit;border-color:inherit;} .table > tbody > tr > td {display:table-cell;border:thin solid #888888 !important;padding:8px;line-height:1.42857;white-space:norwap;} .table tbody {display:table-row-group;vertical-align:middle;border-color:inherit;} .table > tfoot > tr > td {display:table-cell;border:thin solid #888888 !important;padding:8px;line-height:1.42857;white-space:norwap;background-color:#f9f9f9;font-weight:bold;} .table tfoot {display:table-row-group;vertical-align:middle;border-color:inherit;}  tr.table-divider > td {border-bottom:1px solid #808080;} .optiondivider, .optiondivider > span {            padding: 0px 0x!important;        } .optionGroup {font-weight:bold;}	</style>
 </head>
@@ -127,235 +132,225 @@
                         <div class="ibox">
                             <!-- search -->
                             <div class="row page_commmon_top_second">
-                            	<div class="col-sm-2">
+                            	<div class="col-sm-3">
                             		<select id="s_year" name="s_year" class="input-sm form-control input-s-sm inline " >
-                            			<!-- 
-                                    	<option value="2019">2019</option>
-                                    	<option value="2020">2020</option>
-                                    	 -->
+                                        <option value=""></option>
+                                        <option value="2020">2019</option>
+                                        <option value="2020">2021</option>
+                                        <option value="2020">2022</option>
+                                        <option value="2020">2023</option>
+                                        <option value="2020">2024</option>
 									</select>
                             	</div>
-                            	<div class="col-sm-2">
-                            		<select id="s_month" name="s_month" class="input-sm form-control input-s-sm inline " >
-                                        <option value="">---All---</option>
-                                    	<option value="01">01</option>
-                                    	<option value="02">02</option>
-                                    	<option value="03">03</option>
-                                    	<option value="04">04</option>
-                                    	<option value="05">05</option>
-                                    	<option value="06">06</option>
-                                    	<option value="07">07</option>
-                                    	<option value="08">08</option>
-                                    	<option value="09">09</option>
-                                    	<option value="10">10</option>
-                                    	<option value="11">11</option>
-                                    	<option value="12">12</option>
-									</select>
-                            	</div>
-                            	<div class="col-sm-8">
+                                <div class="col-sm-3">
+                                    <select id="s_company_code" name="s_company_code" class="input-sm form-control input-s-sm inline " >
+                                            <option value="">KEU</option>
+                                            <option value="">KUK</option>
+                                            <option value="">KDE</option>
+                                        </select>
+                                </div>
+                            	<div class="col-sm-6">
                             		<div class="input-group">
-	                                    <select id="s_company_code" name="s_company_code" class="input-sm form-control input-s-sm inline " >
-										</select>
+                                        <select class="input-sm form-control input-s-sm inline " >
+                                            <option value="">C11VA00001</option>
+                                            <option value="">C11VA00002</option>
+                                            <option value="">C11VA00003</option>
+                                        </select>
 	                                    <span class="input-group-btn">
 	                                        <button type="button" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
 	                                        <button type="button" id="btn-download-excel" class="btn btn-white"><i class="fa fa-file-excel-o"></i> <span class="hidden-xs" rv-i18n="LBL_EXCEL">Excel</span></button>
 	                                        
-	                                        <button type="button" id="btn-download-excel-new" class="btn btn-white"><i class="fa fa-file-excel-o"></i> <span class="hidden-xs">Excel NEW</span></button>
-	                                        
 	                                        <button type="button" id="btn-data-update" class="btn btn-white"><i class="fa fa-edit"></i> Plan Data Update</button>
-	                                        <button type="button" id="btn-text-update" class="btn btn-white"><i class="fa fa-edit"></i> Memo Text Update</button>
 	                                    </span>
 	                                </div>
                             	</div>
                             </div>
                             <!-- /.search -->
                             <div class="ibox-content">
+
+
+
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <table class="table table-bordered" cellspacing="0" >
-                                            <thead>
-                                                <tr>
-                                                    <th>&nbsp;</th>
-                                                    <th>Dealer Development (regarding Newly-opened, Terminated, Replaced dealers, K-DEP, etc)</th>
-                                                    <th>Global SI</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            
-                                                <tr>
-                                                    <td id="">Yearly Strategy Issue</td>
-                                                    <td><textarea class="form-control" rows="3" maxlength="200" id="view_text_data_01" readonly="readonly"></textarea></td>
-                                                    <td><textarea class="form-control" rows="3" maxlength="200" id="view_text_data_02" readonly="readonly"></textarea></td>
-                                                </tr>
-                                                <tr>
-                                                    <td id="s_monthly_results_text">Monthly Results Issues in </td>
-                                                    <td><textarea class="form-control" rows="3" maxlength="200" id="view_text_data_03" readonly="readonly"></textarea></td>
-                                                    <td><textarea class="form-control" rows="3" maxlength="200" id="view_text_data_04" readonly="readonly"></textarea></td>
-                                                </tr>
-                                            
-                                            </tbody>
-                                        </table>
+                                    <div class="col-lg-12">
+                                        <div class="tabs-container">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active" id="li-tab1"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> Annual Sales Plan</a></li>
+                                                <li class=""  id="li-tab2"><a data-toggle="tab" href="#tab-2" aria-expanded="false">Service Classfication</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+
+                                                <div id="tab-1" class="tab-pane active">
+                                                    <div class="panel-body">
+
+                                                        <div class="row">
+                                                            <div>
+                                                                <canvas id="lineChart" height="40"></canvas>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                            <table id="grid-table" class="table table-bordered" cellspacing="0" width="100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Dealer Code </th>
+                                                                        <th>Site Type</th>
+                                                                        <th>Y2020</th>
+                                                                        <th>Y2021</th>
+                                                                        <th>Y2022</th>
+                                                                        <th>Y2023</th>
+                                                                        <th>Y2024</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="grid-table-tbody">
+
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+
+
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="tab-2" class="tab-pane">
+                                                    <div class="panel-body">
+
+                                                        <div class="row">
+                                                            <div class="myChartDiv">
+                                                                <canvas id="barChart" height="140"></canvas>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="row">
+
+                                                            <table id="grid-table2" class="table table-bordered" cellspacing="0" width="100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Dealer Code</th>
+                                                                        <th>Site Type</th>
+                                                                        <th>Y2020</th>
+                                                                        <th>Y2021</th>
+                                                                        <th>Y2022</th>
+                                                                        <th>Y2023</th>
+                                                                        <th>Y2024</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="grid-table-tbody">
+
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>5-4</td>
+                                                                        <td>5-4</td>
+                                                                        <td>5-4</td>
+                                                                        <td>5-4</td>
+                                                                        <td>5-4</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>C11VA00001</td>
+                                                                        <td>3S</td>
+                                                                        <td>200</td>
+                                                                        <td>201</td>
+                                                                        <td>202</td>
+                                                                        <td>203</td>
+                                                                        <td>204</td>
+                                                                    </tr>
+
+
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+
+
+
+
+
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="table-responsive">
-                                    <div class="col-sm-2" style="padding:0" >
-                                        <table id="grid-table" class="table table-bordered" cellspacing="0" width="20%" style=""><!-- white-space:pre; -->
-                                            <thead>
-                                                <tr>
-                                                    <th style="height: 102px;" colspan="3">&nbsp;</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="3" >Newly Opened</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3" >Terminated</td>
-                                                </tr>
-                                                <tr class="table-divider">
-                                                    <td colspan="3" >Replaced</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="7" class="active" ></td>
-                                                    <td colspan="2" class="active" >Main Dealer</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="4" ></td>
-                                                    <td >KIA Exclusive</td>
-                                                </tr>
-                                                <tr>
-                                                    <td >KIA Exclusive (%)</td>
-                                                </tr>
-                                                <tr>    
-                                                    <td >3S Dealer</td>
-                                                </tr>
-                                                <tr>
-                                                    <td >3S Dealer (%)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="active" >Outlet</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="active" >Sub Dealer</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3" class="active" >Point of Sales</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3" class="active" >Service Only Points(2S)</td>
-                                                </tr>
-                                                <tr class="warning">
-                                                    <td colspan="3" >Total Number of Dealers</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3" class="active" >SI Plan/Result in Year</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="5" class="active" >Cumulative Active SI Installations</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="5" class="active" ></td>
-                                                    <td colspan="2" class="active" >Applied Rate (%)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="4" ></td>
-                                                    <td>Chrome Symbol (Aggregated)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="float: right;">Applied Rate</td>
-                                                </tr>
-                                                <tr>
-                                                    <td >Full Red Cube (Aggregated)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="float: right;">Applied Rate</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="3" class="active" ></td>
-                                                    <td colspan="3" class="active" >Dealer Terminated Total</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="2" ></td>
-                                                    <td >SI Not Applied</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>SI Applied</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="col-sm-2" style="padding:0" >
-                                        <table id="grid-total-table" class="table table-bordered" cellspacing="0" width="20%">
-                                            
-                                            <thead>
-                                                <tr>
-                                                    <th style="height: 102px;">Y<span id="result_year"></span> Result</th>
-                                                    <th style="height: 102px;">Y<span id="plan_year"></span> Plan</th>
-                                                    <th style="height: 102px;">+/-</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="3"  style="text-align: center;"> NO DATA</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="col-sm-8" style="padding:0" >
-                                        <table id="grid-table2" class="table table-bordered" cellspacing="0" width="80%">
-                                            <thead>
-                                                <tr>
-                                                    <th colspan="24">Monthly Plan & Result in Y<span id="t_plan_year"></span></th>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2">Jan</th>
-                                                    <th colspan="2">Feb</th>
-                                                    <th colspan="2">Mar</th>
-                                                    <th colspan="2">Apr</th>
-                                                    <th colspan="2">May</th>
-                                                    <th colspan="2">Jun</th>
-                                                    <th colspan="2">Jul</th>
-                                                    <th colspan="2">Aug</th>
-                                                    <th colspan="2">Sep</th>
-                                                    <th colspan="2">Oct</th>
-                                                    <th colspan="2">Nov</th>
-                                                    <th colspan="2">Dec</th>
-                                                </tr>
-                                                <tr>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                    <th>Plan</th>
-                                                    <th>Result</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="24" style="text-align: center;"> NO DATA</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+
+                                
                             </div>
                         </div>
                     </div>
@@ -797,8 +792,112 @@
     <!-- moment -->
     <script src="../js/plugins/moment/moment.min.js"></script>
     
+    <!-- ChartJS-->
+    <script src="../js/plugins/chartJs/Chart.min.js"></script>
+
     <script>
-    
+
+    function bindEvent(){
+
+        $('#li-tab1').on('click', function(){
+            var lineData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [
+                    {
+                        label: "Example dataset",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    },
+                    {
+                        label: "Example dataset",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }
+                ]
+            };
+
+            var lineOptions = {
+                scaleShowGridLines: true,
+                scaleGridLineColor: "rgba(0,0,0,.05)",
+                scaleGridLineWidth: 1,
+                bezierCurve: true,
+                bezierCurveTension: 0.4,
+                pointDot: true,
+                pointDotRadius: 4,
+                pointDotStrokeWidth: 1,
+                pointHitDetectionRadius: 20,
+                datasetStroke: true,
+                datasetStrokeWidth: 2,
+                datasetFill: true,
+                responsive: true,
+            };
+
+            var ctx = document.getElementById("lineChart").getContext("2d");
+            var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
+
+        });
+
+        $('#li-tab2').on('click', function(){
+            var barData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [
+                    {
+                        label: "My First dataset",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        minBarLength: "40",
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    },
+                    {
+                        label: "My Second dataset",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.8)",
+                        highlightFill: "rgba(26,179,148,0.75)",
+                        highlightStroke: "rgba(26,179,148,1)",
+                        minBarLength: "40",
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }
+                ]
+            };
+
+            var barOptions = {
+                scaleBeginAtZero: true,
+                scaleShowGridLines: true,
+                scaleGridLineColor: "rgba(0,0,0,.05)",
+                scaleGridLineWidth: 1,
+                barShowStroke: true,
+                barStrokeWidth: 2,
+                barValueSpacing: 5,
+                barDatasetSpacing: 1,
+                responsive: true
+            }
+
+
+            var ctx = document.getElementById("barChart").getContext("2d");
+            var myNewChart = new Chart(ctx).Bar(barData, barOptions);
+            
+        });
+
+        $('#grid-table').DataTable();
+
+        $('#grid-table2').DataTable();
+
+        $('#li-tab1').trigger('click');
+    }
+
     $(document).ready(function() {
         //loadDefaultPageDom();
         //loadCompanyCode();
